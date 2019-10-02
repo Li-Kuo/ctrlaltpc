@@ -17,6 +17,8 @@ namespace CtlAltPc.Models
         [StringLength(100)]
         public string Username { get; set; }
 
+        public DateTime DateModified { get; set; }
+
         [ForeignKey("ProductId")]
         [InverseProperty("Cart")]
         public virtual Product Product { get; set; }

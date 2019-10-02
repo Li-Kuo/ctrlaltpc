@@ -26,7 +26,7 @@ namespace CtlAltPc.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Data Source=(local);Initial Catalog=CtrlAltPc;Integrated Security=True");
+                optionsBuilder.UseSqlServer("Data Source=GC-4VC8VP2;Initial Catalog=CtrlAltPc;Persist Security Info=True;User ID=comp2084g;Password=Lakehead2019");
             }
         }
 
