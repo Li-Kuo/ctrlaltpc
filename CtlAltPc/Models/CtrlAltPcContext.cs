@@ -1,10 +1,11 @@
 ﻿using System;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace CtlAltPc.Models
 {
-    public partial class CtrlAltPcContext : DbContext
+    public partial class CtrlAltPcContext : IdentityDbContext<ApplicationUser, ApplicationRole, string>
     {
         public CtrlAltPcContext()
         {
@@ -25,17 +26,22 @@ namespace CtlAltPc.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Data Source=GC-4VC8VP2;Initial Catalog=CtrlAltPc;Persist Security Info=True;User ID=comp2084g;Password=Lakehead2019");
+                //把他們comment掉
+//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+//                optionsBuilder.UseSqlServer("Data Source=GC-4VC8VP2;Initial Catalog=CtrlAltPc;Persist Security Info=True;User ID=comp2084g;Password=Lakehead2019");
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.HasAnnotation("ProductVersion", "2.2.6-servicing-10079");
 
             modelBuilder.Entity<Cart>(entity =>
             {
+               
+
                 entity.Property(e => e.CartId)
                     .IsUnicode(false)
                     .ValueGeneratedNever();
